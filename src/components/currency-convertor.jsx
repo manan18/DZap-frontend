@@ -20,7 +20,7 @@ const CurrencyConverter = () => {
   // Currencies -> https://api.frankfurter.app/currencies
   const fetchCurrencies = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/v1/currency/getAll");
+      const res = await fetch("https://dzap-backend-4.onrender.com/api/v1/currency/getAll");
       const data = await res.json()
       setCurrencies(data);
       setLoading(false)
@@ -39,7 +39,7 @@ const CurrencyConverter = () => {
     if (!amount) return;
     setConverting(true);
     try {
-      const res = await fetch(`http://localhost:8080/api/v1/currency/convert?from=${fromCurrency}&to=${toCurrency}&amt=${amount}`)
+      const res = await fetch(`https://dzap-backend-4.onrender.com/api/v1/currency/convert?from=${fromCurrency}&to=${toCurrency}&amt=${amount}`)
       const data = await res.json();
 
       setConvertedAmount(data.amt + " " + toCurrency);
